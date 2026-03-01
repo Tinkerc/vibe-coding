@@ -1,0 +1,193 @@
+<mxGraphModel dx="1600" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- Title -->
+    <mxCell id="title" value="数据产品创建业务流程 Data Product Creation Business Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+      <mxGeometry x="400" y="20" width="800" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- Start -->
+    <mxCell id="start" value="开始&#xa;Start" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12" vertex="1" parent="1">
+      <mxGeometry x="700" y="80" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== PHASE 1: 数据接入 Data Ingestion ==================== -->
+    <mxCell id="phase1_label" value="阶段 1：数据接入&#xa;Phase 1: Data Ingestion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+      <mxGeometry x="650" y="160" width="220" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="phase1_content" value="&#xa;• 注册外部数据源&#xa;• 定义数据结构 Schema&#xa;• 创建数据表/实体&#xa;• 建立关联关系&#xa;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="650" y="210" width="220" height="90" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== PHASE 2: 质量与版本 Quality and Versioning ==================== -->
+    <mxCell id="phase2_label" value="阶段 2：质量与版本控制&#xa;Phase 2: Quality and Versioning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+      <mxGeometry x="650" y="330" width="220" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="phase2_content" value="&#xa;• 配置字段校验规则&#xa;• 启用版本管理&#xa;• 设置数据变更验证&#xa;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="650" y="380" width="220" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== PHASE 3: 数据处理 Data Processing ==================== -->
+    <mxCell id="phase3_label" value="阶段 3：数据处理与转换&#xa;Phase 3: Data Processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+      <mxGeometry x="650" y="490" width="220" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="phase3_content" value="&#xa;• 数据转换处理&#xa;• 构建宽表视图&#xa;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="650" y="540" width="220" height="60" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== PHASE 4: 产品发布 Product Publishing ==================== -->
+    <mxCell id="phase4_label" value="阶段 4：产品发布与分发&#xa;Phase 4: Publishing and Distribution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+      <mxGeometry x="650" y="630" width="220" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="phase4_content" value="&#xa;• 发布数据产品&#xa;• 配置数据分发渠道&#xa;• 设置访问权限&#xa;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="650" y="680" width="220" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== PHASE 5: 自动化运维 Automation and Ops ==================== -->
+    <mxCell id="phase5_label" value="阶段 5：自动化与监控&#xa;Phase 5: Automation and Monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;align=center;" vertex="1" parent="1">
+      <mxGeometry x="650" y="790" width="220" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="phase5_content" value="&#xa;• 配置工作流自动化&#xa;• 建立数据血缘追踪&#xa;• 影响分析监控&#xa;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="650" y="840" width="220" height="80" as="geometry"/>
+    </mxCell>
+
+    <!-- End -->
+    <mxCell id="end" value="数据产品上线&#xa;─────────────────&#xa;✓ 数据稳定&#xa;✓ 可被发现&#xa;✓ 可复用&#xa;Data Product Ready" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;align=left;" vertex="1" parent="1">
+      <mxGeometry x="650" y="960" width="220" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== MAIN FLOW ARROWS ==================== -->
+    <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;endArrow=block;endFill=1;" edge="1" source="start" target="phase1_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;endArrow=block;endFill=1;" edge="1" source="phase1_content" target="phase2_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;endArrow=block;endFill=1;" edge="1" source="phase2_content" target="phase3_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;endArrow=block;endFill=1;" edge="1" source="phase3_content" target="phase4_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#666666;endArrow=block;endFill=1;" edge="1" source="phase4_content" target="phase5_label" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#82b366;endArrow=block;endFill=1;" edge="1" source="phase5_content" target="end" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== SIDE NOTES ==================== -->
+
+    <!-- Left Side: Key Activities -->
+    <mxCell id="left_header" value="关键活动 Key Activities" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="100" y="160" width="200" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="left_note1" value="📥 数据接入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="120" y="210" width="160" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="left_note1_detail" value="接入外部数据源&#xa;定义数据模型" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="125" y="240" width="150" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="left_note2" value="🔐 质量保障" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="120" y="380" width="160" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="left_note2_detail" value="数据校验规则&#xa;版本控制" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="125" y="410" width="150" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="left_note3" value="🔄 数据处理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="120" y="540" width="160" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="left_note3_detail" value="数据转换&#xa;宽表构建" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="125" y="570" width="150" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="left_note4" value="🚀 产品发布" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="120" y="680" width="160" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="left_note4_detail" value="发布产品&#xa;配置分发" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="125" y="710" width="150" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="left_note5" value="⚙️ 运维监控" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="120" y="840" width="160" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="left_note5_detail" value="自动化工作流&#xa;血缘追踪" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="125" y="870" width="150" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- Right Side: Outcomes -->
+    <mxCell id="right_header" value="阶段产出 Outcomes" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+      <mxGeometry x="1050" y="160" width="200" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="right_note1" value="✅ 数据源已注册&#xa;✅ 数据模型已定义" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="210" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="right_note2" value="✅ 校验规则已配置&#xa;✅ 版本管理已启用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#d79b00;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="380" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="right_note3" value="✅ 宽表视图已生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9673a6;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="545" width="180" height="30" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="right_note4" value="✅ 产品已发布&#xa;✅ 分发渠道已配置" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="680" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="right_note5" value="✅ 工作流已自动化&#xa;✅ 血缘已建立" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="840" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- Connectors from left to main flow -->
+    <mxCell id="c1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="left_note1" target="phase1_content" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="c2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="left_note2" target="phase2_content" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="c3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="left_note3" target="phase3_content" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="c4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="left_note4" target="phase4_content" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="c5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="left_note5" target="phase5_content" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- Connectors from main flow to right -->
+    <mxCell id="r1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="phase1_content" target="right_note1" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="r2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="phase2_content" target="right_note2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="r3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="phase3_content" target="right_note3" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="r4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="phase4_content" target="right_note4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="r5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;strokeColor=#999999;dashed=1;endArrow=none;" edge="1" source="phase5_content" target="right_note5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>

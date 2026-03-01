@@ -1,0 +1,270 @@
+<mxGraphModel dx="1800" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1400" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- Title -->
+    <mxCell id="title" value="Tech Ops User Journey - Data Product Creation Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+      <mxGeometry x="450" y="20" width="900" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- Legend Header -->
+    <mxCell id="legend_title" value="Legend / 图例" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="50" y="80" width="150" height="25" as="geometry"/>
+    </mxCell>
+
+    <!-- Tech Ops Legend -->
+    <mxCell id="legend_tech" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="50" y="110" width="30" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="legend_tech_text" value="Tech Ops (Role)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+      <mxGeometry x="90" y="110" width="130" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- EOP Platform Legend -->
+    <mxCell id="legend_eop" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+      <mxGeometry x="50" y="135" width="30" height="20" as="geometry"/>
+    </mxCell>
+    <mxCell id="legend_eop_text" value="EOP Platform" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+      <mxGeometry x="90" y="135" width="130" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Infra Legend -->
+    <mxCell id="legend_infra" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+      <mxGeometry x="50" y="160" width="30" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="legend_infra_text" value="Infrastructure (Dolt/Airflow)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11" vertex="1" parent="1">
+      <mxGeometry x="90" y="165" width="170" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Main Flow Column Headers -->
+    <mxCell id="col_tech" value="Tech Ops&#xa;Role" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="300" y="80" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="col_eop" value="EOP Platform&#xa;Standard Data Product" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="600" y="80" width="600" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="col_infra" value="Infrastructure&#xa;Dolt / Airflow / Kafka" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="1360" y="80" width="200" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 1: Register External Data Source ==================== -->
+    <mxCell id="step1" value="①&#xa;Register External&#xa;Data Source" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="160" width="120" height="70" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step1_target" value="Data Catalog&#xa;─────────────────&#xa;• register source&#xa;• owner / SLA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="160" width="180" height="70" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step1" target="step1_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 2: Define Schema ==================== -->
+    <mxCell id="step2" value="②&#xa;Define Schema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="260" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step2_target" value="Schema Registry&#xa;─────────────────&#xa;• fields / types" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="260" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step2" target="step2_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 3: Create Table/Entity ==================== -->
+    <mxCell id="step3" value="③&#xa;Create Table /&#xa;Entity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="340" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step3_target" value="Table Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="720" y="340" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step3" target="step3_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 4: Define Reference ==================== -->
+    <mxCell id="step4" value="④&#xa;Define Reference" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="420" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step4_target" value="Reference Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="720" y="420" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step4" target="step4_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 5: Configure Field Rules ==================== -->
+    <mxCell id="step5" value="⑤&#xa;Configure Field&#xa;Rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="500" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step5_target" value="Data Quality Engine&#xa;─────────────────&#xa;• validation rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="500" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step5" target="step5_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 6: Enable Versioning ==================== -->
+    <mxCell id="step6" value="⑥&#xa;Enable Versioning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="580" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step6_target" value="Version &amp; Snapshot Manager&#xa;─────────────────&#xa;• schema / row snapshot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="580" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step6_dolt" value="Dolt" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12" vertex="1" parent="1">
+      <mxGeometry x="1390" y="585" width="80" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step6" target="step6_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e6_dolt" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d79b00;dashed=1;" edge="1" source="step6_target" target="step6_dolt" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 7: Validate Data Change ==================== -->
+    <mxCell id="step7" value="⑦&#xa;Validate Data&#xa;Change" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="670" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step7_target" value="Snapshot Resolver&#xa;─────────────────&#xa;• fallback on failure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="670" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step7" target="step7_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 8: Build Wide View ==================== -->
+    <mxCell id="step8" value="⑧&#xa;Build Wide View" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="760" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step8_target1" value="Transformation Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="640" y="760" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step8_target2" value="Wide View Generator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="800" y="760" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e8a" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step8" target="step8_target1" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e8b" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" source="step8_target1" target="step8_target2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 9: Publish Data Product ==================== -->
+    <mxCell id="step9" value="⑨&#xa;Publish Data&#xa;Product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="850" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step9_target" value="Data Catalog&#xa;─────────────────&#xa;• public / restricted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+      <mxGeometry x="680" y="850" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step9" target="step9_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 10: Configure Distribution ==================== -->
+    <mxCell id="step10" value="⑩&#xa;Configure&#xa;Distribution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="940" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step10_target" value="Push &amp; Publish Dispatcher" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="670" y="940" width="160" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step10_kafka" value="Kafka" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12" vertex="1" parent="1">
+      <mxGeometry x="1390" y="945" width="80" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step10" target="step10_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e10_kafka" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d79b00;dashed=1;" edge="1" source="step10_target" target="step10_kafka" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 11: Configure Workflow Trigger ==================== -->
+    <mxCell id="step11" value="⑪&#xa;Configure&#xa;Workflow Trigger" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="1030" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step11_target" value="Workflow Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="700" y="1030" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step11_airflow" value="Airflow" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=12" vertex="1" parent="1">
+      <mxGeometry x="1390" y="1035" width="80" height="40" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step11" target="step11_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e11_airflow" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d79b00;dashed=1;" edge="1" source="step11_target" target="step11_airflow" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== STEP 12: Observe Impact & Lineage ==================== -->
+    <mxCell id="step12" value="⑫&#xa;Observe Impact&#xa;&amp; Lineage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="300" y="1120" width="120" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="step12_target" value="Lineage / Impact Analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1" vertex="1" parent="1">
+      <mxGeometry x="660" y="1120" width="180" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="step12" target="step12_target" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- ==================== END STATE ==================== -->
+    <mxCell id="end_state" value="END&#xa;─────────────────&#xa;✓ Stable&#xa;✓ Discoverable&#xa;✓ Reusable&#xa;Data Product" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;align=left;" vertex="1" parent="1">
+      <mxGeometry x="300" y="1210" width="180" height="90" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e_end" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=3;strokeColor=#82b366;" edge="1" source="step12_target" target="end_state" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="450" y="1180"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Vertical Flow Lines (Tech Ops Steps) -->
+    <mxCell id="flow_line" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;dashed=1;endArrow=none;" edge="1" source="step1" target="step12" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="250" y="195"/>
+          <mxPoint x="250" y="1145"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Flow Labels on Left -->
+    <mxCell id="flow_label" value="Process Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=1;fontColor=#6c8ebf;rotation=-90" vertex="1" parent="1">
+      <mxGeometry x="220" y="650" width="100" height="20" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
