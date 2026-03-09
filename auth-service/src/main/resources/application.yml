@@ -1,0 +1,86 @@
+spring:
+  application:
+    name: auth-service
+  profiles:
+    active: ${ENV:dev}
+  task:
+    scheduling:
+      pool:
+        size: 2
+
+server:
+  port: 8080
+
+jwt:
+  key-path: ${JWT_KEY_PATH:/opt/auth-service/keys}
+  access-token-expiry: ${JWT_ACCESS_EXPIRY:1800}  # 30 minutes
+  refresh-token-expiry: ${JWT_REFRESH_EXPIRY:604800}  # 7 days
+  issuer: ${JWT_ISSUER:auth-service}
+  audience: ${JWT_AUDIENCE:api-gateway}
+
+oauth2:
+  google:
+    client-id: ${GOOGLE_CLIENT_ID:}
+    client-secret: ${GOOGLE_CLIENT_SECRET:}
+  github:
+    client-id: ${GITHUB_CLIENT_ID:}
+    client-secret: ${GITHUB_CLIENT_SECRET:}
+
+rate-limit:
+  login: ${RATE_LIMIT_LOGIN:5}
+  refresh: ${RATE_LIMIT_REFRESH:10}
+  window-minutes: ${RATE_LIMIT_WINDOW:1}
+
+logging:
+  level:
+    com.vibe.auth: ${LOG_LEVEL:DEBUG}
+    org.springframework.security: ${SECURITY_LOG_LEVEL:INFO}
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authdb_dev
+    username: authuser
+    password: ${DB_PASSWORD:postgres}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+email:
+  enabled: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+jwt:
+  key-path: ${java.io.tmpdir}/auth-test-keys

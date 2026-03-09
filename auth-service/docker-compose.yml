@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth-service
+    ports:
+      - "8080:8080"
+    environment:
+      # Spring Profile
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev}
+
+      # Database Configuration
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=authdb
+      - DB_USER=authuser
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+
+      # JWT Configuration
+      - JWT_KEY_PATH=/opt/auth-service/keys
+      - JWT_ACCESS_TOKEN_EXPIRY=1800
+      - JWT_REFRESH_TOKEN_EXPIRY=604800
+
+      # OAuth2 Configuration - Google
+      - OAUTH2_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - OAUTH2_GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
+      - OAUTH2_GOOGLE_REDIRECT_URI=http://localhost:8080/login/oauth2/code/google
+
+      # OAuth2 Configuration - GitHub
+      - OAUTH2_GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID:-}
+      - OAUTH2_GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET:-}
+      - OAUTH2_GITHUB_REDIRECT_URI=http://localhost:8080/login/oauth2/code/github
+
+      # Frontend URL for OAuth2 redirect
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3000}
+
+      # Email Configuration (optional)
+      - EMAIL_ENABLED=${EMAIL_ENABLED:-false}
+      - EMAIL_SMTP_HOST=${SMTP_HOST:-}
+      - EMAIL_SMTP_PORT=${SMTP_PORT:-587}
+      - EMAIL_USERNAME=${SMTP_USERNAME:-}
+      - EMAIL_PASSWORD=${SMTP_PASSWORD:-}
+
+      # Actuator Configuration
+      - MANAGEMENT_HEALTH_READINESS_STATE_ENABLED=true
+      - MANAGEMENT_HEALTH_LIVENESS_STATE_ENABLED=true
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      # Persist JWT keys across container restarts
+      - ./keys:/opt/auth-service/keys:rw
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    dns:
+      # Use reliable DNS servers for time sync (NTP)
+      - 1.1.1.1
+      - 8.8.8.8
+    networks:
+      - auth-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: auth-postgres
+    environment:
+      - POSTGRES_DB=authdb
+      - POSTGRES_USER=authuser
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=en_US.UTF-8 --lc-ctype=en_US.UTF-8
+    volumes:
+      # Persist database data
+      - pgdata:/var/lib/postgresql/data
+      # Optional: Custom initialization scripts
+      # - ./init-scripts:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U authuser -d authdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - auth-network
+    restart: unless-stopped
+
+  # Optional: Redis for distributed rate limiting (future)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: auth-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   command: redis-server --appendonly yes
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 3s
+  #     retries: 3
+  #   networks:
+  #     - auth-network
+  #   restart: unless-stopped
+
+networks:
+  auth-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local
+  # redis-data:
+  #   driver: local

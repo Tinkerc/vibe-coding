@@ -85,6 +85,9 @@ A future version (v2.0) will include a GUI for non-technical users ("Casual User
 | FR-2.2 | User-defined rules via JSON configuration | ✅ |
 | FR-2.3 | Regex pattern matching for filenames | ✅ |
 | FR-2.4 | Rule priority/precedence handling | ✅ |
+| FR-2.5 | Client prefix detection (e.g., `lulu-*`, `kering-*`) | ✅ |
+| FR-2.6 | Smart pattern matching (invoices, screenshots, diagrams) | ✅ |
+| FR-2.7 | Multiple organization styles (numbered_workflow, extension_based) | ✅ |
 
 ### FR-3: Operations (Must Have)
 | ID | Description | MVP |
@@ -189,39 +192,123 @@ A future version (v2.0) will include a GUI for non-technical users ("Casual User
 
 ## 6. Default Organization Structure
 
+### 6.1 Recommended Structure (Numbered Priority System)
+
+Based on real-world usage patterns from technical professionals, this structure uses **numbered prefixes** for consistent ordering and **workflow-oriented categories**:
+
+```
+{source_directory}/
+├── 📁 01-Projects-by-Client/        (Client-specific work)
+│   ├── 📂 {ClientName}/
+│   │   ├── 📄 *.pdf, *.md, *.docx
+│   │   ├── 🖼️ *.png, *.jpg
+│   │   └── 📊 *.xlsx, *.pptx
+│   └── ... (other clients)
+│
+├── 📁 02-Internal-Systems/          (Internal projects & systems)
+│   ├── 📂 {SystemName}/
+│   │   ├── 📄 Architecture docs
+│   │   ├── 🖼️ Diagrams
+│   │   └── 📊 Reports
+│   └── ... (other systems)
+│
+├── 📁 03-Documents-General/         (General documentation)
+│   ├── 📂 HR-Admin/                 (HR, admin, invoices)
+│   │   ├── 🧾 Invoices/             (*发票*.pdf, *invoice*.pdf)
+│   │   └── 📋 Forms/                (*.pdf, *.docx)
+│   ├── 📂 Learning-Materials/       (Tutorials, courses)
+│   │   ├── 📚 PDFs/                 (*.pdf)
+│   │   └── 📝 Markdown/             (*.md)
+│   ├── 📂 Presentations/            (*.pptx, *.key)
+│   └── 📂 Technical-Docs/           (*.md, *.txt, *.rst)
+│
+├── 📁 04-Images-Screenshots/        (Visual content)
+│   ├── 📂 Diagrams-General/         (Architecture, flowcharts)
+│   │   └── 🎨 *.png, *.jpg, *.svg
+│   ├── 📂 Photos/                   (Personal photos)
+│   │   └── 📸 *.jpg, *.jpeg, *.heic
+│   └── 📂 Screenshots/              (Screen captures)
+│       └── 📸 screenshot*, screen*, *.png
+│
+├── 📁 05-Installers-Archives/       (Software & archives)
+│   ├── 📦 Archives-ZIP/             (*.zip)
+│   ├── 📦 Archives-TAR/             (*.tar, *.tar.gz, *.tgz)
+│   ├── 📦 Archives-RAR/             (*.rar, *.7z)
+│   └── ⚙️ Installers/               (*.dmg, *.pkg, *.exe, *.app)
+│
+├── 📁 06-Code-Data-Files/           (Development & data)
+│   ├── 📂 Code-Snippets/            (*.py, *.js, *.ts, *.go, *.rs)
+│   ├── 📂 Config-Files/             (*.json, *.yaml, *.yml, *.toml)
+│   ├── 📂 JSON-CSV-Data/            (*.json, *.csv, *.xml)
+│   └── 📂 Postman-Collections/      (*.postman_collection.json)
+│
+├── 📁 07-To-Review/                 (Pending review inbox)
+│   └── 📥 All unsorted files        (temporary holding area)
+│
+└── 📂 Other/                        (Uncategorized files)
+    └── 📦 Files not matching rules
+```
+
+### 6.2 Key Design Principles
+
+1. **Numbered Prefixes (01-07)**
+   - Ensures consistent ordering across all file managers
+   - Priority-based: most important categories first
+   - Easy to extend (08, 09, etc.)
+
+2. **Workflow-Oriented Categories**
+   - **01-Projects-by-Client**: Active client work (highest priority)
+   - **02-Internal-Systems**: Internal projects
+   - **03-Documents-General**: Reference materials
+   - **04-Images-Screenshots**: Visual content
+   - **05-Installers-Archives**: Software & archives
+   - **06-Code-Data-Files**: Development files
+   - **07-To-Review**: Inbox for new files
+
+3. **Client-Based Organization**
+   - Files with client prefixes (e.g., `lulu-*.pdf`, `kering-*.xlsx`)
+   - Automatically routed to `01-Projects-by-Client/{ClientName}/`
+   - Supports multiple file types per client
+
+4. **Smart Pattern Matching**
+   - **Client prefix**: `lulu-*`, `kering-*`, `private-*` → Client folders
+   - **Invoice pattern**: `*发票*.pdf`, `*invoice*.pdf` → HR-Admin/Invoices
+   - **Screenshot pattern**: `screenshot*`, `screen*` → Screenshots
+   - **Architecture pattern**: `*architecture*.png`, `*diagram*.png` → Diagrams-General
+
+### 6.3 Alternative: Simple Extension-Based Structure
+
+For users preferring traditional extension-based organization:
+
 ```
 {source_directory}/
 ├── 📁 Documents/
-│   ├── 📄 PDFs/                    (.pdf)
-│   ├── 📝 Text Files/              (.txt, .md)
-│   ├── 📊 Spreadsheets/            (.xlsx, .csv)
-│   └── 📑 Presentations/           (.pptx)
+│   ├── 📄 PDFs/                    (*.pdf)
+│   ├── 📝 Markdown/                (*.md)
+│   ├── 📊 Spreadsheets/            (*.xlsx, *.csv)
+│   └── 📑 Presentations/           (*.pptx, *.key)
 ├── 🖼️ Images/
 │   ├── 📸 Screenshots/             (screenshot*, screen*)
-│   ├── 🏞️ Photos/                  (.jpg, .jpeg, .png, .heic)
-│   ├── 🎨 Graphics/                (.svg, .ai, .psd)
-│   └── 🖼️ Wallpapers/              (wallpaper*, background*)
-├── 🎬 Videos/
-│   ├── 📹 Recordings/              (.mp4, .mov, .webm)
-│   └── 🎥 Movies/                  (.mkv, .avi)
-├── 🎵 Audio/
-│   ├── 🎙️ Recordings/              (.m4a, .aac)
-│   ├── 🎶 Music/                   (.mp3, .flac)
-│   └── 📦 Podcasts/                (podcast*)
-├── 📦 Archives/
-│   ├── 🗜️ ZIP/                     (.zip)
-│   ├── 📦 TAR/                     (.tar, .tar.gz)
-│   └── 🔧 RAR/7z/                  (.rar, .7z)
-├── 💻 Code/
-│   ├── 🐍 Python/                  (.py)
-│   ├── 🌐 JavaScript/              (.js, .ts, .jsx, .tsx)
-│   ├── ☕ Java/                    (.java)
-│   ├── 🦀 Rust/                    (.rs)
-│   ├── 💎 Ruby/                    (.rb)
-│   ├── 🐹 Go/                      (.go)
-│   └── 📦 Other Code/              (.c, .cpp, .h, .cs)
-├── ⚙️ Executables/                 (.exe, .app, .dmg, .deb, .rpm)
+│   ├── 🏞️ Photos/                  (*.jpg, *.jpeg, *.png, *.heic)
+│   └── 🎨 Graphics/                (*.svg, *.ai, *.psd)
+├── 🎬 Videos/                      (*.mp4, *.mov, *.mkv, *.avi)
+├── 🎵 Audio/                       (*.mp3, *.flac, *.m4a, *.aac)
+├── 📦 Archives/                    (*.zip, *.tar*, *.rar, *.7z)
+├── 💻 Code/                        (*.py, *.js, *.ts, *.go, *.rs, *.java)
+├── ⚙️ Installers/                  (*.dmg, *.pkg, *.exe, *.app)
 └── 📂 Other/                       (uncategorized)
+```
+
+### 6.4 Configuration Selection
+
+Users can choose organization style via configuration:
+
+```json
+{
+  "organization_style": "numbered_workflow",  // or "extension_based"
+  "client_prefixes": ["lulu", "kering", "private", "bby"],
+  "invoice_patterns": ["*发票*.pdf", "*invoice*.pdf"]
+}
 ```
 
 ---
@@ -230,14 +317,18 @@ A future version (v2.0) will include a GUI for non-technical users ("Casual User
 
 ### UC-1: Organize Downloads Folder (Basic)
 **Actor:** Busy Professional
-**Precondition:** Downloads folder has 200+ mixed files
+**Precondition:** Downloads folder has 200+ mixed files with client prefixes
 **Main Flow:**
 1. User runs command: `organizer organize ~/Downloads --dry-run`
-2. Tool shows preview: "Will move 187 files into 12 folders"
+2. Tool shows preview:
+   - "Will move 187 files into 7 main folders"
+   - "Client files: lulu-* → 01-Projects-by-Client/Lululemon (45 files)"
+   - "Invoices: *发票*.pdf → 03-Documents-General/HR-Admin/Invoices (5 files)"
+   - "Architecture diagrams: *architecture*.png → 04-Images-Screenshots/Diagrams-General (12 files)"
 3. User reviews summary and approves
 4. User runs: `organizer organize ~/Downloads`
 5. Tool creates folders and moves files
-6. Tool shows completion summary
+6. Tool shows completion summary with statistics
 **Postcondition:** Downloads folder is organized, no data loss
 
 ### UC-2: Custom Rules for Project Files
@@ -259,6 +350,16 @@ A future version (v2.0) will include a GUI for non-technical users ("Casual User
 2. Tool processes each directory with combined progress
 3. Tool shows combined summary
 **Postcondition:** All directories organized
+
+### UC-4: Client-Based Organization (New)
+**Actor:** Consultant / Freelancer
+**Precondition:** Downloads folder has files with client prefixes (lulu-*, kering-*, etc.)
+**Main Flow:**
+1. User runs: `organizer organize ~/Downloads --style numbered_workflow`
+2. Tool detects client prefixes and creates client folders
+3. Files are organized by client first, then by type within client folders
+4. Tool shows: "Organized 45 Lululemon files, 23 Kering files, 12 Private files"
+**Postcondition:** Client files are grouped together for easy access
 
 ---
 
@@ -319,8 +420,109 @@ Users can override with `--force` flag (requires confirmation).
 
 ### JSON Configuration Example
 
+#### Example 1: Numbered Workflow Style (Recommended)
+
 ```json
 {
+  "organization_style": "numbered_workflow",
+  "client_prefixes": ["lulu", "kering", "private", "bby"],
+
+  "rules": [
+    {
+      "name": "Client Files - Lululemon",
+      "patterns": ["lulu-*"],
+      "destination": "01-Projects-by-Client/Lululemon",
+      "priority": 100
+    },
+    {
+      "name": "Client Files - Kering",
+      "patterns": ["kering-*"],
+      "destination": "01-Projects-by-Client/Kering",
+      "priority": 100
+    },
+    {
+      "name": "Client Files - Private",
+      "patterns": ["private-*"],
+      "destination": "01-Projects-by-Client/Private",
+      "priority": 100
+    },
+    {
+      "name": "Invoices",
+      "patterns": ["*发票*.pdf", "*invoice*.pdf"],
+      "destination": "03-Documents-General/HR-Admin/Invoices",
+      "priority": 90
+    },
+    {
+      "name": "Architecture Diagrams",
+      "patterns": ["*architecture*.png", "*diagram*.png", "*flow*.png"],
+      "destination": "04-Images-Screenshots/Diagrams-General",
+      "priority": 85
+    },
+    {
+      "name": "Screenshots",
+      "patterns": ["screenshot*", "screen*", "Screenshot*"],
+      "destination": "04-Images-Screenshots/Screenshots",
+      "priority": 80
+    },
+    {
+      "name": "PDFs",
+      "patterns": ["*.pdf"],
+      "destination": "03-Documents-General/Learning-Materials/PDFs",
+      "priority": 50
+    },
+    {
+      "name": "Markdown",
+      "patterns": ["*.md"],
+      "destination": "03-Documents-General/Technical-Docs",
+      "priority": 50
+    },
+    {
+      "name": "Presentations",
+      "patterns": ["*.pptx", "*.key"],
+      "destination": "03-Documents-General/Presentations",
+      "priority": 50
+    },
+    {
+      "name": "Spreadsheets",
+      "patterns": ["*.xlsx", "*.csv"],
+      "destination": "06-Code-Data-Files/JSON-CSV-Data",
+      "priority": 50
+    },
+    {
+      "name": "Postman Collections",
+      "patterns": ["*.postman_collection.json"],
+      "destination": "06-Code-Data-Files/Postman-Collections",
+      "priority": 60
+    },
+    {
+      "name": "Installers",
+      "patterns": ["*.dmg", "*.pkg", "*.exe"],
+      "destination": "05-Installers-Archives/Installers",
+      "priority": 50
+    },
+    {
+      "name": "Archives",
+      "patterns": ["*.zip", "*.tar*", "*.rar", "*.7z"],
+      "destination": "05-Installers-Archives/Archives-ZIP",
+      "priority": 50
+    }
+  ],
+
+  "options": {
+    "conflict_resolution": "rename",
+    "create_empty_folders": true,
+    "cleanup_empty_dirs": false,
+    "default_destination": "07-To-Review"
+  }
+}
+```
+
+#### Example 2: Simple Extension-Based Style
+
+```json
+{
+  "organization_style": "extension_based",
+
   "rules": [
     {
       "name": "PDFs",
@@ -338,6 +540,7 @@ Users can override with `--force` flag (requires confirmation).
       "destination": "Code/Python"
     }
   ],
+
   "options": {
     "conflict_resolution": "rename",
     "create_empty_folders": true,
@@ -353,11 +556,15 @@ Users can override with `--force` flag (requires confirmation).
 ### Basic Commands
 
 ```bash
-# Preview organization (dry-run)
+# Preview organization (dry-run) - Recommended first step
 organizer organize ~/Downloads --dry-run
 
-# Organize with default rules
+# Organize with default rules (numbered_workflow style)
 organizer organize ~/Downloads
+
+# Organize with specific style
+organizer organize ~/Downloads --style numbered_workflow
+organizer organize ~/Downloads --style extension_based
 
 # Organize with custom config
 organizer organize ~/project --config rules.json
@@ -365,14 +572,17 @@ organizer organize ~/project --config rules.json
 # Batch multiple directories
 organizer organize ~/Downloads ~/Desktop --batch
 
-# Verbose output
+# Verbose output (show detailed file movements)
 organizer organize ~/Downloads --verbose
 
-# Quiet mode
+# Quiet mode (only show summary)
 organizer organize ~/Downloads --quiet
 
-# Show what would be organized by category
+# Analyze directory structure and show statistics
 organizer analyze ~/Downloads
+
+# Show client-based statistics
+organizer analyze ~/Downloads --by-client
 ```
 
 ### Help
